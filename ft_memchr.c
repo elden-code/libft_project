@@ -6,21 +6,29 @@
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:03:22 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/04 21:39:35 by soel-mou         ###   ########.fr       */
+/*   Updated: 2023/11/25 12:02:22 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
+#include "libft.h"
 
-void * memchr(const void *s, int c, size_t n)
+void	*ft_memchr(void const *str, int c, size_t n)
 {
-	const unsigned char * ucptr = (unsigned char *)s;
-	int i = 0;
-	while (ucptr[i])
+	while (n--)
 	{
-		if (ucptr[i] == (unsigned char)c)
-			return ((void *)(ucptr + i));
-		i++;
+		if (*(unsigned char *)str++ == (unsigned char)c)
+			return ((void *)(unsigned char *)str - 1);
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+int main()
+{
+	const char str[] = "solaymanelden";
+	int c = 'l';
+
+	printf("output is : %s\n", memchr(str, c, 9));
+	return (0);
+}
+*/	

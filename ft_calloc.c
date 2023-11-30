@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 01:34:43 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/17 17:45:17 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/14 09:09:35 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/23 17:29:41 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*p;
-	unsigned char	uc;
+	size_t	total_size;
+	void	*ptr;
 
-	p = (unsigned char *)b;
-	uc = (unsigned char)c;
-	while (len > 0)
-	{
-		*p = uc;
-		p++;
-		len--;
-	}
-	return (b);
+	if (count == 0 || size == 0)
+		return (malloc(0));
+	total_size = count * size;
+	if (total_size / size != count)
+		return (NULL);
+	ptr = malloc(count * size);
+	if (ptr != NULL)
+		ft_bzero(ptr, total_size);
+	return (ptr);
 }
 /*
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
+ 
 int main()
 {
-	char str[] = "jdckbbsdv;";
-	char c = 's';
-	size_t len = 30;
-	ft_memset(str, c, len);
-	printf("what happend : %s\n", str);
+
+	char *ptr = (char*)ft_calloc(10, 0);
+
+	printf("%p\n", ptr);
+	printf("%s\n", ptr);
 	return 0;
+ 
 }
 */

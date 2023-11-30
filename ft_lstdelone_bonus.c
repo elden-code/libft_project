@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 01:34:43 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/17 17:45:17 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/21 15:16:45 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/21 15:16:48 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	unsigned char	*p;
-	unsigned char	uc;
+	t_list	*tmp;
 
-	p = (unsigned char *)b;
-	uc = (unsigned char)c;
-	while (len > 0)
-	{
-		*p = uc;
-		p++;
-		len--;
-	}
-	return (b);
+	if (lst == NULL)
+		return ;
+	tmp = lst->next;
+	del(lst->content);
+	free(lst);
+	lst = tmp;
 }
 /*
-#include <stdio.h>
-#include <string.h>
-int main()
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char str[] = "jdckbbsdv;";
-	char c = 's';
-	size_t len = 30;
-	ft_memset(str, c, len);
-	printf("what happend : %s\n", str);
-	return 0;
+	if (!lst || !del)
+		return ;
+	if (lst->content)
+		del(lst->content);
+	free(lst);
+	lst = NULL;
 }
 */

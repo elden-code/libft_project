@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 01:34:43 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/17 17:45:17 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/12 18:23:05 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/17 17:49:54 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*p;
-	unsigned char	uc;
+	int		i;
+	char	c;
 
-	p = (unsigned char *)b;
-	uc = (unsigned char)c;
-	while (len > 0)
+	i = 0;
+	while (s[i])
 	{
-		*p = uc;
-		p++;
-		len--;
+		c = s[i];
+		write(fd, &c, 1);
+		i++;
 	}
-	return (b);
+	write(fd, "\n", 1);
 }
 /*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str[] = "jdckbbsdv;";
-	char c = 's';
-	size_t len = 30;
-	ft_memset(str, c, len);
-	printf("what happend : %s\n", str);
-	return 0;
+#include <fcntl.h>
+
+int main() {
+
+	char s[] = "solayman";
+
+    int file_descriptor = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666);
+    if (file_descriptor == -1) {
+
+        return 1;
+    }
+
+    ft_putendl_fd(s, file_descriptor);
+
+
+    close(file_descriptor);
+
+    return 0;
 }
 */

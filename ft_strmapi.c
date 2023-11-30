@@ -1,45 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 21:50:40 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/18 15:54:59 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/11 05:20:01 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/18 20:44:22 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*s1_b;
-	unsigned char	*s2_b;
-	size_t			i;
+	size_t		i;
+	size_t		len;
+	char		*str;
 
-	s1_b = (unsigned char *)s1;
-	s2_b = (unsigned char *)s2;
 	i = 0;
-	if (n <= 0)
+	if (!s || !f)
 		return (0);
-	while (s1_b[i] == s2_b[i])
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (0);
+	while (i < len)
 	{
-		if (i + 1 == n)
-			return (0);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (s1_b[i] - s2_b[i]);
+	str[i] = '\0';
+	return (str);
 }
 /*
 #include <stdio.h>
-#include <string.h>
+
+char f(unsigned int i, char c)
+{
+	char str;
+	i = 1;
+	str = c + i;
+	return (str);
+}
+
 int main()
 {
 	char str1[] = "solayman";
-	char str2[] = "solayman";
-	size_t n = 5;
-	printf("the output is : %d\n", ft_memcmp(str1, str2, n));
-	return 0;
+	char* str2;
+	str2 = ft_strmapi(str1, *f);
+	printf("the output is : %s\n", str2);
 }
 */

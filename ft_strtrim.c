@@ -1,77 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 16:19:47 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/07 17:15:52 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/18 17:29:37 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/18 18:10:51 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int ft_strlen(char const *str)
+static char	*ft_strncpy(char *str1, char const *str2, size_t n)
 {
-	size_t len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+	size_t	counter;
 
-char * ft_strchr(const char *s, int c)
-{
-	while (*s != '\0')
+	counter = 0;
+	while (counter < n)
 	{
-		if (*s == c)
-			return ((char *)s);
-		*s++;
+		str1[counter] = str2[counter];
+		counter++;
 	}
-	return (NULL);
+	str1[counter] = '\0';
+	return (str1);
 }
 
-char *ft_strncpy(char * dst, const char * src, size_t len)
+static char	*ft_malloc_empty(void)
 {
-	size_t		i;
+	char	*empty_str;
 
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dst);
+	empty_str = (char *)malloc(1);
+	if (empty_str == (NULL))
+		return (NULL);
+	empty_str[0] = '\0';
+	return (empty_str);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t		s1_len;
+	char const	*start;
+	char const	*end;
+	size_t		trimmed_len;
+	char		*trimmed;
+
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	size_t s1_len;
-
 	s1_len = ft_strlen(s1);
-	char const *start = s1;
-	char const *end = s1 + s1_len - 1;
-
+	start = s1;
+	end = s1 + s1_len - 1;
 	while (*start && ft_strchr(set, *start))
 		start++;
 	if (*start == '\0')
-	{
-		char *empty_str = (char *)malloc(1);
-		if (empty_str = NULL)
-			return (NULL);
-		empty_str[0] = '\0';
-		return (empty_str);
-	}
-	while (end > start && ft_strchr(set , *end))
+		return (ft_malloc_empty());
+	while (end > start && ft_strchr(set, *end))
 		end--;
-	size_t trimmed_len = end - start + 1;
-	char *trimmed = (char *)malloc(trimmed_len + 1);
+	trimmed_len = end - start + 1;
+	trimmed = (char *)malloc(trimmed_len + 1);
 	if (trimmed == NULL)
 		return (NULL);
-	ft_strncpy(trimmed, start, trimmed_len);
-	trimmed[trimmed_len] = '\0';
+	trimmed = ft_strncpy(trimmed, start, trimmed_len);
 	return (trimmed);
 }
+/*
+#include <stdio.h>
+int main()
+{
+	char str[] = "sol";
+	char set[] = "sol";
+
+	printf("the output is : %s\n", ft_strtrim(str, set));
+	return 0;
+}
+*/

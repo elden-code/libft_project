@@ -6,27 +6,49 @@
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 02:56:26 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/04 15:53:23 by soel-mou         ###   ########.fr       */
+/*   Updated: 2023/11/20 01:15:25 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
+#include "libft.h"
 
-void my_memmove(void *dest, const void *src, size_t n) {
-    char *d = (char *)dest;
-    const char *s = (const char *)src;
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char		*dst_b;
+	const unsigned char	*src_b;
+	size_t				index;
 
-    if (d == s) {
-        return;  
-    }
-
-    if (d < s) {
-        for (size_t i = 0; i < n; i++) {
-            d[i] = s[i];
-        }
-    } else {
-        for (size_t i = n; i > 0; i--) {
-            d[i - 1] = s[i - 1];
-        }
-    }
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	dst_b = dst;
+	src_b = src;
+	if (dst_b > src_b)
+	{
+		index = len;
+		while (index-- > 0)
+			dst_b[index] = src_b[index];
+	}
+	else
+	{
+		index = 0;
+		while (index < len)
+		{
+			dst_b[index] = src_b[index];
+			index++;
+		}
+	}
+	return (dst);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int main ()
+{
+    char dest[] = "Aticleworld";
+    const char src[]  = "Amlendra";
+    printf("Before memmove >> dest = %s, src = %s\n\n", dest, src);
+    ft_memmove(dest, src, 20);
+    printf("After memmove >> dest = %s, src = %s\n\n", dest, src);
+    return 0;
+}
+*/

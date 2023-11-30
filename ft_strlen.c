@@ -2,20 +2,31 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */ 
+/*                                                    +:+ +:+         +:+     */
 /*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 21:42:53 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/01 22:35:26 by soel-mou         ###   ########.fr       */
+/*   Created: 2023/11/15 15:35:33 by soel-mou          #+#    #+#             */
+/*   Updated: 2023/11/17 17:41:47 by soel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t strlen(const char *s)
-{
-	size_t i;
+#include "libft.h"
 
-	i = 0;
-	while(s[i])
-		i++;
-	return (i);
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
+/*
+#include <stdio.h>
+int main()
+{
+	char str[] = "5klsdhjl0";
+	printf("the result is : %zu", ft_strlen(str));
+	return 0;
+}
+*/
