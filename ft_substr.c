@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 23:09:19 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/24 15:58:13 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 #include "libft.h"
 #include <limits.h>
 
@@ -33,18 +23,3 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	*substr = 0;
 	return (result);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str[] = "hola";
-	//int start = 18;
-	size_t len = 145377;
-
-	printf("str before : %s\n", str);
-	printf("output : %s\n", ft_substr("hola", 0, 5));
-	printf("str after : %s\n", str);
-	return 0;
-}
-*/

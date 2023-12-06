@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim_test.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 17:29:37 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/18 18:10:51 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include "libft.h"
 
@@ -63,14 +53,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimmed = ft_strncpy(trimmed, start, trimmed_len);
 	return (trimmed);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char str[] = "sol";
-	char set[] = "sol";
-
-	printf("the output is : %s\n", ft_strtrim(str, set));
-	return 0;
-}
-*/

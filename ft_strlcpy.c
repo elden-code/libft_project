@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 15:04:02 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/18 22:40:54 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -31,16 +20,3 @@ size_t	ft_strlcpy(char	*dst, const	char	*src, size_t	dstsize)
 	}
 	return (srclen);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char dst[] = "";
-	char src[] = "lorem ip";
-	size_t dstsize = 15;
-	printf("the result is : %zu\n", ft_strlcpy(dst, src, dstsize));
-	printf("the dst : %s\n", dst);
-	printf("the src : %s\n", src);
-	return 0;
-}
-*/

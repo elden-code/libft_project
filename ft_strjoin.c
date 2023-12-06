@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 00:07:37 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/18 20:43:48 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -57,13 +46,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strcat(result, s2);
 	return (result);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char s1[] = "";
-	char s2[] = "";
-	printf("output is : %s\n", ft_strjoin(s1, s2));
-	return 0;
-}
-*/

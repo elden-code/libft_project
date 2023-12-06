@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 18:33:27 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/19 22:22:31 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -54,15 +43,4 @@ char	*ft_itoa(int n)
 	handle_sign_and_digit(n_mem, str);
 	return (str);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	int n = -2147483648;
-	char *str = ft_itoa(n);
-	printf("the my_res is : %s \n", str);
-//	printf("the or_res is : %s \n", itoa(n));
-	return 0;
-}
-*/
+

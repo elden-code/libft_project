@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 23:51:27 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/25 11:57:24 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -55,16 +44,3 @@ int	ft_atoi(char const *str)
 	}
 	return (n);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str[] = "-9223372036854775807999999999999999";
-	printf("the own is : %d \n", ft_atoi(str));
-	printf("the original : %d \n", atoi(str));
-	printf("%d\n", INT_MAX);
-	printf("%d\n", INT_MIN);
-	return 0;
-}
-*/

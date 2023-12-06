@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split_test.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soel-mou <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 18:36:03 by soel-mou          #+#    #+#             */
-/*   Updated: 2023/11/23 17:52:36 by soel-mou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -88,19 +77,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (ptr[i] = 0, ptr);
 }
-/*
-#include <stdio.h>
-int main() {
-    char c = ' ';
-    char s[] = "df sa df sa sdf abb b";
-    char **str = ft_split(s, c);
-
-    for (int i = 0; str[i] != NULL; i++) {
-        printf("str num [%d] = %s\n", i, str[i]);
-        free(str[i]);
-    }
-    free(str);
-
-    return 0;
-}
-*/
